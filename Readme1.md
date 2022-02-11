@@ -7,9 +7,22 @@ The training Data is prepared with using Anuvaad
 ```
 OCR Workflow - Generating JSON or/and TXT from a pdf document containing  digitization information at line/word level with ANUVAAD WORKFLOW.
 OCR_BENCHMARK - It generates CSV from input JSON, and then run tesseract on the pdf’s csv generated with custom or default weights to  generate lines and saves in report csv.
-                This report_csv contains initial ground truth generated from OCR and the tesseract predictions, thus it is benchmarking of the tesseract weights. and error profiling on the generated line crop and GroundTruth are done. 
-                benchmark percent is calculated
-SYNTHETIC DATA GENERATOR - Provided a txt document containing lines, fonts and background images, It generates line crop and ground text txt files as tesseract training required extensions.
+                This report_csv contains initial ground truth generated from OCR and the tesseract predictions, thus it is benchmarking of the tesseract weights. 
+Error profiling - (Jupyter notebook) Error profiling on the generated csv from ocr_benchmark contains line crops and GroundTruths of OCR and Tesseract predictions, segrigate these with score based on class wise
+                              '''
+                                Class -2 : Manual intervention required 
+                                class -1 : tesseract correct
+                                class 0 : charater mismatch ಕೆ as ಕ
+                                Class 1 : ೧೧ . as NAN, ೧೧ . as 1, 2 as 2.0, 1.40 as 1.0, 14 as 1, etc.  ( digit error)
+                                Class 2 : ಚಿಹ್ನೆಗಳು as ಚಿಹೆಗಳು,  ಬಾಗಲಕೋಟ as ಬದಾಗಲಕೋಟ, ಎಲ್ಎಕೂ as ಎಲ್‌ಎಕ್ಯೂ etc.  (Auxiliaries)
+                                Class 3 : / as |, " as ' ', etc        (Special characters)
+                                Class 4 : கிடங்கு as யபI, கடனாக as -IபI, etc. (contradiction)
+                                Class 5 : ಅರ್ಜೆಂಟಿನಾ as             (Missing text and crop issue)
+                                Class 6 : Text repeatation
+
+                              ''' 
+                              and manually check for error in line crops groundTruth and  rectify the text line and add class to based on if the texts has any error.
+SYNTHETIC DATA GENERATOR - Provided a txt document containing line texts, lines from error profiling, fonts and background images, It generates line crop and ground text .gt.txt files as tesseract training required extensions.
 ```
 
 
