@@ -6,8 +6,16 @@ Training workflow for Tesseract 4
 The training Data is prepared with using Anuvaad 
 ```
 OCR Workflow - Generating JSON or/and TXT from a pdf document containing  digitization information at line/word level with ANUVAAD WORKFLOW.
+               
+```
+https://github.com/project-anuvaad/ocr-toolkit/tree/ocr_toolkit/ocr
+ ```
 OCR_BENCHMARK - It generates CSV from input JSON, and then run tesseract on the pdf’s csv generated with custom or default weights to  generate lines and saves in report csv.
-                This report_csv contains initial ground truth generated from OCR and the tesseract predictions, thus it is benchmarking of the tesseract weights. 
+                This report_csv contains initial ground truth generated from OCR and the tesseract predictions, thus it is benchmarking of the tesseract weights.
+                
+```
+https://github.com/project-anuvaad/ocr-toolkit/tree/ocr_toolkit/ocr_benchmark
+```
 Error profiling - (Jupyter notebook) Error profiling on the generated csv from ocr_benchmark contains line crops and GroundTruths of OCR and Tesseract predictions, segrigate these with score based on class wise
                               '''
                                 Class -2 : Manual intervention required 
@@ -22,8 +30,17 @@ Error profiling - (Jupyter notebook) Error profiling on the generated csv from o
 
                               ''' 
                               and manually check for error in line crops groundTruth and  rectify the text line and add class to based on if the texts has any error.
+                              eg:
+```
+https://github.com/project-anuvaad/ocr-toolkit/blob/ocr_toolkit/error-profiling/error_profiling.ipynb
+```
+```
+![plot](error-profiling-images/error-profiling-img1.png)
+
+```                            
 SYNTHETIC DATA GENERATOR - Provided a txt document containing line texts, lines from error profiling, fonts and background images, It generates line crop and ground text .gt.txt files as tesseract training required extensions.
 ```
+https://github.com/project-anuvaad/ocr-toolkit/tree/ocr_toolkit/synthetic_data_generator
 
 
 ### Python
@@ -65,7 +82,8 @@ The repository contains a ZIP archive with sample ground truth, see
 
 ```
  make training MODEL_NAME=name-of-the-resulting-model
- 
+ ```
+ ```
  eg:
     make training MODEL_NAME=tel_v1 START_MODEL=Devanagari PSM=7 TESSDATA=/usr/share/tesseract-ocr/4.00/tessdata MAX_ITERATIONS=200000
 ```
