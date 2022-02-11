@@ -38,7 +38,8 @@ https://github.com/project-anuvaad/ocr-toolkit/blob/ocr_toolkit/error-profiling/
 ![plot](error-profiling-images/error-profiling-img1.png)
 
 ```                            
-SYNTHETIC DATA GENERATOR - Provided a txt document containing line texts, lines from error profiling, fonts and background images, It generates line crop and ground text .gt.txt files as tesseract training required extensions.
+SYNTHETIC DATA GENERATOR - Provided a txt document containing line texts, lines from error profiling, 
+                           fonts and background images, It generates line crop and ground text .gt.txt files as tesseract training required extensions.
 ```
 https://github.com/project-anuvaad/ocr-toolkit/tree/ocr_toolkit/synthetic_data_generator
 
